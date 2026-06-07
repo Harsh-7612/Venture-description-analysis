@@ -1,35 +1,30 @@
-### Venture-description-analysis  
+# Venture Description Analyzer
 
-Summary:  
+![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)
+![BERTopic](https://img.shields.io/badge/BERTopic-0.15%2B-orange)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
-Developed an NLP-based venture description analysis pipeline to automatically cluster and categorize startup/business descriptions into meaningful thematic groups using transformer embeddings and BERTopic. This enables scalable market segmentation, startup landscape analysis, and rapid identification of venture domains from unstructured text data. The pipeline transforms raw venture descriptions into structured topic insights with confidence scores and interpretable labels, making large-scale entrepreneurial data easier to analyze for research and strategic decision-making.  
+## About the Project
 
------------------------------------------------------------------------------------------------------------------------
+The Venture Description Analyzer is an NLP-based pipeline engineered to automatically cluster and categorize unstructured startup and business descriptions into meaningful thematic groups. Designed to facilitate scalable downstream quantitative analysis for venture capital evaluations, the engine leverages transformer embeddings and `BERTopic` to extract latent startup domains.
 
-Detailed:  
+By transforming raw, unstructured text into enriched datasets with confidence scores and human-interpretable labels, this tool enables rapid market segmentation, startup landscape mapping, and venture trend analysis.
 
-Collected and loaded raw venture-description dataset containing startup/business descriptions from p1_filtered.csv.
-Performed data preprocessing and deduplication by removing duplicate entries based on venture description text to ensure topic quality and reduce noise.    
+### Core Features
+* **Semantic Representation:** Generates dense embeddings using `SentenceTransformers` (`all-MiniLM-L6-v2`) optimized for GPU acceleration.
+* **Unsupervised Clustering:** Utilizes `BERTopic` configured for high interpretability (`min_topic_size=10`).
+* **Noise Reduction:** Automatically filters out outlier clusters (Topic `-1`) to ensure high-confidence thematic grouping.
+* **Data Enrichment:** Exports structured JSON/CSV datasets containing Topic IDs, probability metrics, and aggregate keyword labels.
 
-Generated dense semantic embeddings for each venture description using the transformer model
-SentenceTransformers with the pretrained all-MiniLM-L6-v2 encoder on GPU.  
+## Prerequisites
 
-Built an unsupervised topic modeling pipeline using BERTopic to discover latent thematic clusters from venture descriptions.  
+* Python 3.8+
+* CUDA-enabled GPU (Highly recommended for transformer inference)
 
-Configured BERTopic with custom parameters (min_topic_size=10) to control cluster granularity and improve interpretability.  
+## Installation
 
-Computed topic assignments and topic probability/confidence scores for every venture description.  
-
-Filtered out BERTopic’s noise/outlier cluster (-1) to retain only high-confidence meaningful topic groups.
-Generated human-interpretable labels for each cluster by extracting and aggregating top representative keywords per topic.  
-
-Exported enriched datasets with:
-Topic IDs
-Topic probabilities
-Human-readable topic labels  
-
-Produced structured venture clusters enabling downstream applications such as:
-Market segmentation
-Startup ecosystem mapping
-Venture trend analysis
-Investor/researcher categorization pipelines
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/Harsh-7612/Venture-description-analysis.git](https://github.com/Harsh-7612/Venture-description-analysis.git)
+   cd Venture-description-analysis
