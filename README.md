@@ -28,3 +28,19 @@ By transforming raw, unstructured text into enriched datasets with confidence sc
    ```bash
    git clone [https://github.com/Harsh-7612/Venture-description-analysis.git](https://github.com/Harsh-7612/Venture-description-analysis.git)
    cd Venture-description-analysis
+   ```
+---
+
+### 3. Code & Dependency Review
+
+Based on the libraries and configurations implemented in your pipeline, several standard configuration files are missing.
+
+**1. Create a `requirements.txt` file:**
+Create this file at the root level to ensure reproducibility across different environments.
+```text
+pandas>=1.3.0
+sentence-transformers>=2.2.2
+bertopic>=0.15.0
+torch>=1.9.0
+scikit-learn>=1.0.2
+```
